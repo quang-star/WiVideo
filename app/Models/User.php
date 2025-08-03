@@ -47,4 +47,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    /**
+     * Relationship method followers
+     */
+    public function followers(){
+        return $this->hasMany('\App\Models\Follow', 'user_id', 'id');
+    }
+    public function following(){
+        return $this->hasMany('\App\Models\Follow', 'follow_id', 'id');
+    }
+    /**
+     * Relation ship method list videos
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function my_video(){
+        return $this->hasMany('\App\Models\Video', 'author_id', 'id');
+    }
 }

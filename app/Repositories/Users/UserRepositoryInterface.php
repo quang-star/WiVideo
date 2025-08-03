@@ -9,4 +9,5 @@ interface UserRepositoryInterface
 
     // Define function get user using email
     public function findUserUsingEmail($email);
+    public function getMyInfo($userId);
 }
